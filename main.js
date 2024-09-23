@@ -211,7 +211,7 @@ Object.values(BOOKS).forEach(function (book) {
 			section_checkbox.id = section.title;
 			section_checkbox.addEventListener("change", toggle);
 			section_label.htmlFor = section.title;
-			section_label.innerHTML = [section.title, section.sentences[0].english].join(" - ");
+			section_label.innerHTML = [section.title, section.sentences[0].english.replaceAll("_", " ")].join(" - ");
 			section_wrapper.appendChild(section_checkbox);
 			section_wrapper.appendChild(section_label);
 			sections_ul.appendChild(section_wrapper);
