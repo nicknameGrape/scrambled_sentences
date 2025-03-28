@@ -1,5 +1,5 @@
 export const JS2_P4 = {
-	"title": "Project 4: High-Tech Nature",
+	"title": "Program 4: High-Tech Nature",
 	"startPage": 49,
 	"sections": [
 		{

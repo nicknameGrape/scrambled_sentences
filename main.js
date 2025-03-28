@@ -74,7 +74,7 @@ function Quiz() {
 	//}
 	divReference.innerHTML = data["title"] + ", page " + data.page;
 	divProgress.innerHTML = "Quiz " + (progress+1) + " of " + sentences.length;
-	divPrompt.innerHTML = data.japanese;
+	divPrompt.innerHTML = "<span class=\"speaker\">（" + data.speaker + "） </span>" + data.japanese;
 	divCorrect.innerHTML = "";
 	let correctOrder = data.english.split(" ");
 	let words = correctOrder.slice();

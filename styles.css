@@ -116,6 +116,9 @@ li {
 	justify-content: center;
 	background: pink;
 }
+.speaker {
+	color: gray;
+}
 #correct {
 	grid-area: 2 / 2 / 3 / 2;
 	display: flex;
