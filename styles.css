@@ -19,7 +19,7 @@ body {
 }
 #menu {
 	display: grid;
-	grid-template-rows: 1fr 1fr 5fr 1fr;
+	grid-template-rows: 10vh 10vh 70vh 10vh;
 	height: 100vh;
 }
 #title {
@@ -35,13 +35,9 @@ body {
 	align-items: center;
 	justify-content: center;
 }
-#scripts {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
+#books {
 	font-size: 4vh;
-	height: 50vh;
-	padding: 20px;
+	overflow: scroll;
 }
 .list {
 	display: flex;
@@ -65,7 +61,6 @@ li {
 }
 #start {
 	font-size: 5vh;
-	height: 100%;
 }
 #game {
 	display: none;
