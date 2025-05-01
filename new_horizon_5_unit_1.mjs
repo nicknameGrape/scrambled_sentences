@@ -16,7 +16,7 @@ export const NH5_U1 = {
 			]
 		},
 		{
-			"title": "Let's Chant: What subject dojyou like?",
+			"title": "Let's Chant: What subject do you like?",
 			"sentences": [
 				{"page": 8, "speaker": "みんな", "english": "What subject do_you like?", "japanese": "好きな教科は何ですか？"},
 				{"page": 8, "speaker": "ごりらのオスカー", "english": "I like music.", "japanese": "音楽が好きです。"},

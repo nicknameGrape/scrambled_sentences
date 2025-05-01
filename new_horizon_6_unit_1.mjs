@@ -36,6 +36,23 @@ export const NH6_U1 = {
 				{"page": 6, "speaker": "ナディア", "english": "I like animals.", "japanese": "動物が好きです。"},
 				{"page": 6, "speaker": "みんな", "english": "It's nice to_meet you_all.", "japanese": "みなさん、はじめまして。"}
 			]
+		},
+		{
+			"title": "Speeches: My Treasure",
+			"sentences": [
+				{"page": 9, "speaker": "だいち", "english": "Hello, I'm Daichi.", "japanese": "こんにちは、ダイチです。"},
+				{"page": 9, "speaker": "だいち", "english": "I'm good_at programming.", "japanese": "プログラミングが得意です。"},
+				{"page": 9, "speaker": "だいち", "english": "My treasure is this_tablet.", "japanese": "私の宝物はこのタブレットです。"},
+				{"page": 9, "speaker": "だいち", "english": "It's from my grandfather.", "japanese": "祖父からもらったものです。"},
+				{"page": 9, "speaker": "さき", "english": "Hello, I'm Saki.", "japanese": "こんにちは、サキです。"},
+				{"page": 9, "speaker": "さき", "english": "My treasure is this_dictionary.", "japanese": "私の宝物はこの辞書です。"},
+				{"page": 9, "speaker": "さき", "english": "It's a_birthday_present from my_parents.", "japanese": "両親からの誕生日プレゼントです。"},
+				{"page": 9, "speaker": "さき", "english": "I use this_dictionary every_day.", "japanese": "この辞書は毎日使っています。"},
+				{"page": 10, "speaker": "ディーパ", "english": "Hello. I'm Deepa.", "japanese": "こんにちは、ディーパです。"},
+				{"page": 10, "speaker": "ディーパ", "english": "I like badminton.", "japanese": "バドミントンが好きです。"},
+				{"page": 10, "speaker": "ディーパ", "english": "My treasure is this_bag.", "japanese": "私の宝物はこのバッグです。"},
+				{"page": 10, "speaker": "ディーパ", "english": "It's from my mother.", "japanese": "母からもらったものです。"}
+			]
 		}
 	]
 };
