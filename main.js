@@ -27,6 +27,7 @@ function updateSelected() {
 	let checked = checkboxes.filter(function (el) {
 		if (
 			el.checked &&
+			el.hasOwnProperty("data") &&
 			el.data.hasOwnProperty("sentences")
 		) {
 			return el;
@@ -60,6 +61,15 @@ function updateSelected() {
 		});
 		sentences = sentences.concat(el.data.sentences);
 	});
+	if (inputShuffled.checked) {
+		let tmp = [];
+		while (sentences.length > 0) {
+			let randomSentence = sentences.splice(Math.floor(Math.random()*sentences.length), 1)[0];
+			tmp.push(randomSentence);
+		}
+		sentences = tmp;
+		console.log("SHUFFLED");
+	}
 }
 
 function Quiz() {
@@ -148,6 +158,7 @@ let divBooks = document.getElementById("books");
 let divG6 = document.getElementById("g6");
 let divG5 = document.getElementById("g5");
 let divInstructions = document.getElementById("instructions");
+let inputShuffled = document.getElementById("shuffled");
 let buttonStart = document.getElementById("start");
 let buttonBack = document.getElementById("back");
 let buttonsNext = Array.from(document.getElementsByClassName("next"));
@@ -220,6 +231,7 @@ Object.values(BOOKS).forEach(function (book) {
 	});
 });
 updateSelected();
+inputShuffled.addEventListener("change", updateSelected);
 buttonStart.addEventListener("click", start);
 buttonBack.addEventListener("click", back);
 buttonsNext.forEach(function (b) {

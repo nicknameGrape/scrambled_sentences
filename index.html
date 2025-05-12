@@ -21,7 +21,13 @@
 			<div id="title">Scrambled Sentences</div>
 			<div id="instructions">Select one or more of the scripts below, then tap "Start":</div>
 			<ul id="books"></ul>
-			<button id="start" disabled>Start</button>
+			<div id="startWrapper">
+				<div>
+					<label for="shuffled">Shuffle Sentences</label>
+					<input id="shuffled" type="checkbox"></input>
+				</div>
+				<button id="start" disabled>Start</button>
+			</div>
 		</div>
 		<div id="game">
 			<div id="topbar">
@@ -30,7 +36,7 @@
 				<span id="progress">line x of y</span>
 			</div>
 			<div id="midbar">
-				<button id="nextL" class="next">Next</button>
+				<!-- <button id="nextL" class="next">Next</button> -->
 				<div id="prompt"></div>
 				<div id="correct"></div>
 				<button id="nextR" class="next">Next</button>
