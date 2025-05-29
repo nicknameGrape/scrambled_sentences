@@ -84,7 +84,11 @@ function Quiz() {
 	//}
 	divReference.innerHTML = data["title"] + ", page " + data.page;
 	divProgress.innerHTML = "Quiz " + (progress+1) + " of " + sentences.length;
-	divPrompt.innerHTML = "<span class=\"speaker\">（" + data.speaker + "） </span>" + data.japanese;
+	if (data.speaker !== "") {
+		divPrompt.innerHTML = "<span class=\"speaker\">（" + data.speaker + "） </span>" + data.japanese;
+	} else {
+		divPrompt.innerHTML = data.japanese;
+	}
 	divCorrect.innerHTML = "";
 	let correctOrder = data.english.split(" ");
 	let words = correctOrder.slice();
