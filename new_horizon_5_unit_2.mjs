@@ -28,6 +28,15 @@ export const NH5_U2 = {
 				{"page": "18", "speaker": "ソフィア", "english": "I want a_birthday_party with my_friends!", "japanese": "友達と誕生日パーティーがしたい！"},
 				{"page": "18", "speaker": "", "english": "Happy birthday!", "japanese": "お誕生日おめでとう！"}
 			]
+		},
+		{
+			"title": "Genki's Birthday Wish",
+			"sentences": [
+				{"page": "22", "speaker": "ディーパ", "english": "When is your birthday?", "japanese": "あなたの誕生日はいつですか？"},
+				{"page": "22", "speaker": "げんき", "english": "My birthday is July 7th.", "japanese": "私の誕生日は7月7日です。"},
+				{"page": "22", "speaker": "ディーパ", "english": "What do_you want for your birthday?", "japanese": "誕生日に何がほしいですか？"},
+				{"page": "22", "speaker": "げんき", "english": "I want a_new_bike.", "japanese": "新しい自転車が欲しいです。"}
+			]
 		}
 	]
 };
