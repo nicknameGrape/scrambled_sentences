@@ -1,5 +1,6 @@
 import {NH5_U1} from "./new_horizon_5_unit_1.mjs";
 import {NH5_U2} from "./new_horizon_5_unit_2.mjs";
+import {NH5_U3} from "./new_horizon_5_unit_3.mjs";
 import {NH6_U1} from "./new_horizon_6_unit_1.mjs";
 import {JS2_P1} from "./junior_sunshine_2_program_1.mjs";
 import {JS2_P4} from "./junior_sunshine_2_program_4.mjs";
@@ -9,7 +10,8 @@ export const BOOKS = {
 		"title": "New Horizon 5",
 		"contents": [
 			NH5_U1,
-			NH5_U2
+			NH5_U2,
+			NH5_U3
 		]
 	},
 	"New Horizon 6": {
