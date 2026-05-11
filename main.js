@@ -70,6 +70,7 @@ function updateSelected() {
 
 function Quiz() {
 	let data = sentences[progress];
+	let title = [book.title, content.title, section.title].join(" > ");
 	//let spanTitle = document.createElement("span");
 	//let spanProgress = document.createElement("span");
 	//spanTitle.innerHTML = data["title"] + ", page " + data.page;
@@ -78,9 +79,9 @@ function Quiz() {
 	//while (divProgress.firstChild) {
 	//	divProgress.removeChild(divProgress.firstChild)
 	//}
-	divReference.innerHTML = data["title"] + ", page " + data.page;
+	divReference.innerHTML = title + ", page " + data.page;
 	divProgress.innerHTML = "Quiz " + (progress+1) + " of " + sentences.length;
-	if (data.speaker !== "") {
+	if (data.hasOwnProperty("speaker") && data.speaker !== "") {
 		divPrompt.innerHTML = "<span class=\"speaker\">（" + data.speaker + "） </span>" + data.japanese;
 	} else {
 		divPrompt.innerHTML = data.japanese;
@@ -112,23 +113,39 @@ function Quiz() {
 		if (button.value === correct) {
 			this.guessed.push(correct.replaceAll("_", " "));
 			audioWrong.pause();
+			Array.from(divWords.children).forEach(function (button) {
+				button.style.background = "";
+				button.style.color = "";
+			});
 			if (this.guessed.length === this.correctOrder.length) {
 				audioComplete.currentTime = 0;
-				audioComplete.play();
+				//audioComplete.play();
 				buttonsNext.forEach(b => b.disabled = false);
 			} else {
 				audioCorrect.currentTime = 0;
-				audioCorrect.play();
+				//audioCorrect.play();
 			}
 			divCorrect.innerHTML = this.guessed.join(" ");
 			button.style.visibility = "hidden";
 			this.progress += 1;
 		} else {
 			audioWrong.currentTime = 0;
-			audioWrong.play();
+			//audioWrong.play();
+			button.style.background = "red";
+			button.style.color = "white";
 		}
 	};
 	return;
+}
+
+function quickstart(section) {
+	sentences = section.sentences;
+	if (sentences.length > 0) {
+		divMenu.style.display = "none";
+		divGame.style.display = "grid";
+	}
+	quiz = new Quiz();
+	buttonsNext.forEach(b => b.disabled = true);
 }
 
 function start() {
@@ -154,13 +171,6 @@ function next() {
 
 const paramsString = window.location.search;
 const searchParams = new URLSearchParams(paramsString);
-if (BOOKS.hasOwnProperty(searchParams.get("book"))) {
-	let book = BOOKS[searchParams.get("book")];
-	if (typeof book.contents.find(o => o.title === searchParams.get("contents")) !== "undefined") {
-		let contents = book.contents.find(o => o.title === searchParams.get("contents"));
-		console.log(book, contents);
-	}
-}
 let divMenu = document.getElementById("menu");
 let divGame = document.getElementById("game");
 let divBooks = document.getElementById("books");
@@ -176,6 +186,9 @@ let divProgress = document.getElementById("progress");
 let divPrompt = document.getElementById("prompt");
 let divWords = document.getElementById("words");
 let divCorrect = document.getElementById("correct");
+let book = null;
+let content = null;
+let section = null;
 let sentences = [];
 let progress = 0;
 let quiz = null;
@@ -252,3 +265,15 @@ window.addEventListener("keydown", function (ev) {
 		quiz = new Quiz();
 	}
 });
+
+//quickstart with url querys
+if (BOOKS.hasOwnProperty(searchParams.get("book"))) {
+	book = BOOKS[searchParams.get("book")];
+	if (typeof book.contents.find(o => o.title === searchParams.get("contents")) !== "undefined") {
+		content = book.contents.find(o => o.title === searchParams.get("contents"));
+		if (typeof content.sections.find(o => o.title === searchParams.get("section")) !== "undefined") {
+			section = content.sections.find(o => o.title === searchParams.get("section"));
+			quickstart(section);
+		}
+	}
+}
