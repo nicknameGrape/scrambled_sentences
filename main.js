@@ -1,8 +1,6 @@
 //import {js2_p4} from "./junior_sunshine_2_project_4.mjs";
 import {BOOKS} from "./textbooks.mjs";
 
-console.log(BOOKS);
-
 function toggle(ev) {
 	let data = ev.target.data;
 	if (data.hasOwnProperty("contents")) {
@@ -33,7 +31,6 @@ function updateSelected() {
 			return el;
 		}
 	});
-	console.log("CHECKED", checked);
 	//const INSTRUCTIONS = "Select one or more of the scripts below, then tap \"Start\":"
 	//let instructionsP = document.createElement("span");
 	//instructionsP.innerHTML = INSTRUCTIONS;
@@ -68,7 +65,6 @@ function updateSelected() {
 			tmp.push(randomSentence);
 		}
 		sentences = tmp;
-		console.log("SHUFFLED");
 	}
 }
 
@@ -156,6 +152,15 @@ function next() {
 	quiz = new Quiz();
 }
 
+const paramsString = window.location.search;
+const searchParams = new URLSearchParams(paramsString);
+if (BOOKS.hasOwnProperty(searchParams.get("book"))) {
+	let book = BOOKS[searchParams.get("book")];
+	if (typeof book.contents.find(o => o.title === searchParams.get("contents")) !== "undefined") {
+		let contents = book.contents.find(o => o.title === searchParams.get("contents"));
+		console.log(book, contents);
+	}
+}
 let divMenu = document.getElementById("menu");
 let divGame = document.getElementById("game");
 let divBooks = document.getElementById("books");
@@ -196,7 +201,6 @@ Object.values(BOOKS).forEach(function (book) {
 	book_wrapper.appendChild(book_label);
 	divBooks.appendChild(book_wrapper);
 	book.contents.forEach(function (content) {
-		console.log(content)
 		let contents_ul = document.createElement("ul");
 		let content_wrapper = document.createElement("li");
 		let content_checkbox = document.createElement("input");
@@ -212,7 +216,6 @@ Object.values(BOOKS).forEach(function (book) {
 		content_wrapper.appendChild(content_checkbox);
 		content_wrapper.appendChild(content_label);
 		contents_ul.appendChild(content_wrapper);
-		console.log(content_wrapper);
 		divBooks.appendChild(contents_ul);
 		content.sections.forEach(function (section) {
 			let sections_ul = document.createElement("ul");
