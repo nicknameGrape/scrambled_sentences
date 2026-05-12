@@ -92,7 +92,17 @@ li {
 }
 #back {
 	grid-area: 1/1/2/2;
+}
+#points {
+	grid-area: 1/1/2/2;
 	display: none;
+	align-items: center;
+	justify-content: center;
+	background: orange;
+}
+#points:before {
+	content: "POINTS:";
+	padding-right: 10px;
 }
 #nextL {
 	grid-area: 1 / 1 / 3 / 1;

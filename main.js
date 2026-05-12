@@ -70,19 +70,11 @@ function updateSelected() {
 
 function Quiz() {
 	let data = sentences[progress];
-	let title = [book.title, content.title, section.title].join(" > ");
-	//let spanTitle = document.createElement("span");
-	//let spanProgress = document.createElement("span");
-	//spanTitle.innerHTML = data["title"] + ", page " + data.page;
-	//console.log(spanTitle.innerHTML);
-	//spanProgress.innerHTML = "Quiz " + (progress+1) + " of " + sentences.length;
-	//while (divProgress.firstChild) {
-	//	divProgress.removeChild(divProgress.firstChild)
-	//}
+	let title = data.title;
 	divReference.innerHTML = title + ", page " + data.page;
 	divProgress.innerHTML = "Quiz " + (progress+1) + " of " + sentences.length;
 	if (data.hasOwnProperty("speaker") && data.speaker !== "") {
-		divPrompt.innerHTML = "<span class=\"speaker\">（" + data.speaker + "） </span>" + data.japanese;
+		divPrompt.innerHTML = "<span class=\"speaker\">(" + data.speaker + ")&nbsp; </span>" + data.japanese;
 	} else {
 		divPrompt.innerHTML = data.japanese;
 	}
@@ -105,6 +97,7 @@ function Quiz() {
 	progress = (progress + 1)%sentences.length;
 	this.data = data;
 	this.progress = 0;
+	this.givesPoint = true;
 	this.correctOrder = data.english.split(" ");
 	this.guessed = [];
 	this.checkGuess = function (button) {
@@ -127,10 +120,20 @@ function Quiz() {
 			}
 			divCorrect.innerHTML = this.guessed.join(" ");
 			button.style.visibility = "hidden";
+			//the following if check will give a point if they choose the right word without making a mistake
+			if (this.givesPoint) {
+				let spanPoints = document.getElementById("points");
+				spanPoints.innerHTML = parseInt(spanPoints.innerHTML) + 1;
+			} else {
+				this.givesPoint = true;
+				//this will allow them to earn a point on the next word
+			}
 			this.progress += 1;
 		} else {
 			audioWrong.currentTime = 0;
 			//audioWrong.play();
+			this.givesPoint = false;
+			//since they have made a mistake, this word will not give points
 			button.style.background = "red";
 			button.style.color = "white";
 		}
@@ -140,11 +143,15 @@ function Quiz() {
 
 function quickstart(section) {
 	sentences = section.sentences;
+	sentences.forEach(s => s.title = [book.title, content.title, section.title].join(" > "));
 	if (sentences.length > 0) {
 		divMenu.style.display = "none";
 		divGame.style.display = "grid";
 	}
 	quiz = new Quiz();
+	//hide back button from students and show points instead
+	document.getElementById("back").style.display = "none";
+	document.getElementById("points").style.display = "flex";
 	buttonsNext.forEach(b => b.disabled = true);
 }
 
@@ -269,8 +276,8 @@ window.addEventListener("keydown", function (ev) {
 //quickstart with url querys
 if (BOOKS.hasOwnProperty(searchParams.get("book"))) {
 	book = BOOKS[searchParams.get("book")];
-	if (typeof book.contents.find(o => o.title === searchParams.get("contents")) !== "undefined") {
-		content = book.contents.find(o => o.title === searchParams.get("contents"));
+	if (typeof book.contents.find(o => o.title === searchParams.get("content")) !== "undefined") {
+		content = book.contents.find(o => o.title === searchParams.get("content"));
 		if (typeof content.sections.find(o => o.title === searchParams.get("section")) !== "undefined") {
 			section = content.sections.find(o => o.title === searchParams.get("section"));
 			quickstart(section);
