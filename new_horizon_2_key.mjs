@@ -7,12 +7,12 @@ export const NH2_KEY = {
 			"sentences": [
 				{
 					"page": 132,
-					"english": "I am_going_to visit Singapore tomorrow.",
+					"english": "I am_going to_visit Singapore tomorrow.",
 					"japanese": "明日シンガポールに行きます。"
 				},
 				{
 					"page": 132,
-					"english": "Are you going_to visit Singapore tomorrow?",
+					"english": "Are_you going to_visit Singapore tomorrow?",
 					"japanese": "明日シンガポールに行きますか？"
 				},
 				{
@@ -32,7 +32,7 @@ export const NH2_KEY = {
 				},
 				{
 					"page": 132,
-					"english": "I will show you some pictures.",
+					"english": "I will show you some_pictures.",
 					"japanese": "写真をいくつかお見せします。"
 				},
 				{
@@ -47,7 +47,7 @@ export const NH2_KEY = {
 				},
 				{
 					"page": 132,
-					"english": "If you have time, you can come.",
+					"english": "If you_have time, you_can come.",
 					"japanese": "時間があれば、来てもいいですよ。"
 				},
 				{
@@ -72,12 +72,12 @@ export const NH2_KEY = {
 				},
 				{
 					"page": 132,
-					"english": "She has a_lot_of work_to_do.",
+					"english": "She has a_lot_of work to_do.",
 					"japanese": "彼女にはやるべきことがたくさんあります。"
 				},
 				{
 					"page": 132,
-					"english": "It is important to_look at the_children's_faces.",
+					"english": "It_is important to_look at the_children's_faces.",
 					"japanese": "子供たちの顔を見ることは大切です。"
 				},
 				{
@@ -87,7 +87,7 @@ export const NH2_KEY = {
 				},
 				{
 					"page": 132,
-					"english": "You do not have_to speak perfect English.",
+					"english": "You do not have_to speak perfect_English.",
 					"japanese": "完璧な英語を話す必要はありません。"
 				},
 				{
@@ -112,12 +112,12 @@ export const NH2_KEY = {
 				},
 				{
 					"page": 132,
-					"english": "I_know how_to use these_products.",
+					"english": "I_know how to_use these_products.",
 					"japanese": "これらの製品の使い方を知っています。"
 				},
 				{
 					"page": 132,
-					"english": "I can show you how_to use these_products.",
+					"english": "I can show you how to_use these_products.",
 					"japanese": "これらの製品の使い方をお見せできます。"
 				},
 				{
@@ -132,7 +132,7 @@ export const NH2_KEY = {
 				},
 				{
 					"page": 132,
-					"english": "A_volleyball is the_smallest of_the three.",
+					"english": "A_volleyball is the_smallest of the_three.",
 					"japanese": "バレーボールは3つの中で一番小さい。"
 				},
 				{
